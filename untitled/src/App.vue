@@ -4,7 +4,7 @@ import {uplodafile} from "./apis/uploda.js";
 
 const refuploda =ref()
 
-const fileData = new FromData();
+const fileData = new FormData();
 
 
 const fileuploda=()=>{
