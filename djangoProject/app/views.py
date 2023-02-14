@@ -15,13 +15,13 @@ def index(request):
     for i in request.FILES.items():
         print("$$:\n", i)
 
-    # fileinfo = {"filepath": '', "filename": '', "filesize": '', "filetype": ''}
+    fileinfo = {"filepath": '', "filename": '', "filesize": '', "filetype": ''}
 
     # file_path = os.path.join(settings.MEDIA_ROOT, img.name)
     # with open(file_path, 'ab') as fp:
     #     for chunk in img.chunks():
     #         fp.write(chunk)
 
-    obj = HttpResponse(json.dumps({'name': ''}))
+    obj = HttpResponse(json.dumps(fileinfo))
 
     return obj

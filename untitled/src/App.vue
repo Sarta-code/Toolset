@@ -15,7 +15,6 @@ const fileUpLoad=()=>{
 }
 
 const fileSubmit= async ()=>{
-  console.log("sigio ")
   const result = await uplodafile(fileData)
   console.log(result.data)
 }
