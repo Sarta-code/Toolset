@@ -7,14 +7,14 @@ const refuploda =ref()
 const fileData = new FormData();
 
 
-const fileuploda=()=>{
-  fileData.append("filekeyname", refuploda.value.files[0]);
+const fileUpLoad=()=>{
 
-  console.log(fileData.get('filekeyname'))
-  console.log(fileData)
+  for (let i = 0; i<refuploda.value.files.length; i++) {
+    fileData.append(refuploda.value.files.item(i).name.split(".")[1]+'-'+refuploda.value.files.item(i).size, refuploda.value.files.item(i));
+  }
 }
 
-const filesubmit= async ()=>{
+const fileSubmit= async ()=>{
   console.log("sigio ")
   const result = await uplodafile(fileData)
   console.log(result.data)
@@ -25,7 +25,7 @@ const filesubmit= async ()=>{
 
 <template>
   <div>
-    <input type="file" name="filename" class="uplodafileid" ref="refuploda" @change="fileuploda()">
-    <button @click="filesubmit">提交</button>
+    <input type="file" name="filename" multiple class="uplodafileid" ref="refuploda" @change="fileUpLoad()">
+    <button @click="fileSubmit">提交</button>
   </div>
 </template>
