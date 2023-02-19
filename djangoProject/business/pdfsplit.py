@@ -1,26 +1,18 @@
-from borb.pdf import Document
-from borb.pdf.pdf import PDF
+from PyPDF2 import PdfReader, PdfWriter
 
 
-def split_pdf(pdf_file_handle):
-    # 阅读PDF
-    input_pdf = PDF.loads(pdf_file_handle)
+def Split_PDF_pageNum(pdf_path, target_page=[2, 4, 6, 8, 10]):
+    resultPath = []
+    with open(pdf_path, 'rb') as f:
+        pdf = PdfReader(f)
+        for onePage in range(len(pdf.pages)):
+            file_writer = PdfWriter()
+            # 将遍历的每一页添加到实例化对象中
+            file_writer.add_page(pdf.pages[onePage])
+            for i in range(0, len(target_page)):
+                if onePage == target_page[i] - 1:
+                    with open("{}.pdf".format(onePage + 1), 'wb') as out:
+                        resultPath.append(out.name)
+                        file_writer.write(out)
 
-    # 创建两个空的PDF，以容纳分裂的每一半
-    output_pdf_001 = Document()
-    output_pdf_002 = Document()
-
-    # 分割
-    for i in range(0, 10):
-        if i < 5:
-            output_pdf_001.add_page(input_pdf.get_page(i))
-        else:
-            output_pdf_002.add_page(input_pdf.get_page(i))
-
-    # 撰写PDF
-    with open("output_001.pdf", "wb") as pdf_out_handle:
-        PDF.dumps(pdf_out_handle, output_pdf_001)
-
-    # 撰写PDF
-    with open("output_002.pdf", "wb") as pdf_out_handle:
-        PDF.dumps(pdf_out_handle, output_pdf_002)
+    return resultPath
