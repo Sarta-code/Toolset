@@ -18,6 +18,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Tool" />
     <orderEntry type="module" module-name="untitled" />
   </component>
   <component name="TemplatesService">
