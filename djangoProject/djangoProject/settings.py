@@ -64,8 +64,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 #     'taoduoduo-test.oss-cn-shenzhen.aliyuncs.com:80',  # 线上
 #     '10.0.2.187:8080'  # 本地
 # )
-MEDIA_URL = '/downloader/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'downloader')
+MEDIA_URL = '/uploader/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploader')
 
 
 ROOT_URLCONF = 'djangoProject.urls'

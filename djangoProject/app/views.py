@@ -4,13 +4,11 @@ import os
 from django.conf import settings
 from django.utils.datastructures import MultiValueDict
 import json
-from business.pdfsplit import Split_PDF_pageNum
+# from business.pdfsplit import Split_PDF_pageNum
 
 
 # Create your views here.
-def index(request):
-    # img = request.FILES.get('docx-46217')
-    # print(img.size)
+def upload(request):
     fileinfo = []
     for i in request.FILES.items():
         file_Item = request.FILES.get(i[0])
@@ -23,6 +21,4 @@ def index(request):
             {"filepath": file_path, "filename": file_Item.name, "filesize": file_Item.size, "filetype": i[0]}
         )
     obj = HttpResponse(json.dumps(fileinfo))
-
-    # extract_information("../media/personal resume.pdf")
     return obj
