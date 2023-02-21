@@ -4,7 +4,7 @@
 
 <template>
 <div class="nav">
-  <div><a href="javascript:void(0)">logo</a> </div>
+  <div class="logo"><a href="javascript:void(0)">logo</a> </div>
   <div><a href="javascript:void(0)">PDF拆分</a> </div>
   <div><a href="javascript:void(0)">PDF转换</a> </div>
   <div><a href="javascript:void(0)">PDF提取内容</a> </div>
@@ -24,6 +24,13 @@
   div{
     padding:1rem;
     margin:0 5rem;
+    &:hover{
+          border-bottom: 2px #535bf2 solid;
+          transform: scale(1.05)
+    }
+    &:active{
+      transform: scale(0.9)
+    }
   }
 }
 </style>
